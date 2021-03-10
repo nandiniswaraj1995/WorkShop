@@ -30,12 +30,42 @@ namespace ConsoleApp1
 
             }
         }
+        public int winOrLossForADay()
+        {
+            int lossStake = stake / 2;
+            int winStake = (stake * 3) / 2;
+            bool flag = true;
+            while (flag == true)
+            {
+                int check = random.Next(0, 2);
+                if (check == 1)
+                {
+
+                    stake++;
+
+                }
+                else
+                {
+
+                    stake--;
+                }
+                if (stake == lossStake || stake == winStake)
+                {
+
+                    flag = false;
+                }
+            }
+
+            return stake;
+
+        }
 
 
         static void Main(string[] args)
         {
             Program obj = new Program();
-            obj.winOrLoss();
+            int result = obj.winOrLossForADay();
+            Console.WriteLine("Playe stake for day " + stake);
         }
     }
 }
